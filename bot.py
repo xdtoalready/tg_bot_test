@@ -15,7 +15,7 @@ load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 WEB3_URL = os.getenv("WEB3_URL")  # URL вашего мини-приложения Web3
 
-# Обработчик команды /start
+# Обработчик /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
         [InlineKeyboardButton("Открыть миниапп Web3", url=WEB3_URL)]
