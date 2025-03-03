@@ -11,13 +11,11 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 nest_asyncio.apply()
 load_dotenv()
 
-# Получаем переменные окружения
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 WEB3_URL = os.getenv("WEB3_URL", "https://hermesx.ru")
-# Порт для health-сервера, по умолчанию 8000
 PORT = int(os.getenv("PORT", "8000"))
 
-# Минимальный HTTP-сервер для health check
+# Простой HTTP-сервер для health check
 class HealthHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -55,3 +53,4 @@ if __name__ == "__main__":
     threading.Thread(target=start_health_server, daemon=True).start()
     # Запускаем Telegram-бота
     asyncio.run(run_telegram_bot())
+
