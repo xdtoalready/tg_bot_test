@@ -39,12 +39,15 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text("Используйте /start для начала.")
 
-# Асинхронная функция запуска Telegram-бота через polling с отключенными сигналами
+# Асинхронная функция запуска Telegram-бота через polling
 async def run_telegram_bot():
     application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
+
     application.add_handler(CommandHandler("start", start_command))
     application.add_handler(CommandHandler("help", help_command))
-    await application.run_polling(disable_signals=True)
+
+    # Убираем параметр disable_signals, если версия PTB < 20
+    await application.run_polling()
 
 # Функция для запуска бота в отдельном потоке
 def start_bot():

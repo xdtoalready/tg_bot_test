@@ -1,5 +1,6 @@
-Flask
-python-telegram-bot==20.0
+Flask>=2.0.0
+python-telegram-bot==21.11.1
 nest_asyncio
 python-dotenv
 gunicorn
+
