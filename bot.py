@@ -12,7 +12,7 @@ nest_asyncio.apply()
 load_dotenv()
 
 # Вывод диагностической информации
-print("===== ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ =====")
+print("===== ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ чеченцы =====")
 for key in ['TELEGRAM_BOT_TOKEN', 'WEB3_URL', 'PORT']:
     value = os.getenv(key, "НЕ УСТАНОВЛЕНО")
     masked_value = value[:4] + '****' if key == 'TELEGRAM_BOT_TOKEN' and value != "НЕ УСТАНОВЛЕНО" else value
